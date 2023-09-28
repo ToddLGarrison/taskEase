@@ -43,6 +43,7 @@ const TopBar = ({ user }) => {
                 <div className="menu-text">
                   <button onClick={toggleDropDown} className="username user-greeting">
                       Hello {user?.username}!
+                    <span className="hamburger-icon">&#9776;</span>
                   </button>
                   {showDropDown && (
                     <ul className="dropdown-menu">

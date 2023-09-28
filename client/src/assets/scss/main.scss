@@ -1,7 +1,17 @@
 @import "./foundation/settings";
 @import "~foundation-sites/scss/foundation";
 @include foundation-everything;
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Lilita+One&family=Montserrat:wght@200;300;400;500;900&family=Ubuntu:wght@300;400;500&display=swap");
 // place global css here
+
+//color palette
+$main-background-color: #f5f5f5;
+$primary-color: #007bff;
+$secondary-color: #6c757d;
+$accent-color-one: #28a746;
+$accent-color-two: #dc3545;
+
+
 *,
 *::before,
 *::after {
@@ -11,4 +21,63 @@
 :root {
   -moz-tab-size: 4;
   tab-size: 4;
+}
+
+body {
+  background-color: $main-background-color;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Lato', sans-serif;
+  color: $primary-color;
+}
+
+p {
+  font-family: 'Ubuntu', sans-serif;
+}
+
+a {
+  text-decoration: underline;
+}
+
+.taskEase {
+  color: $primary-color;
+  font-family: 'Playfair Display';
+  font-size: xx-large;
+}
+
+//navbar & dropdown menu
+.navbar-border {
+  border-bottom: 1px $primary-color solid;
+}
+
+.username {
+  color: $accent-color-one;
+  font-family: 'Roboto', sans-serif;
+  margin-bottom: 0;
+  box-sizing: border-box;
+  line-height: 1;
+  text-decoration: none;
+  display: block;
+  font-weight: bold;
+  margin-right: .5rem;
+  padding: 11px, 16px;
+}
+
+.user-greeting:hover {
+  color: $primary-color;
+}
+
+.hamburger-icon {
+  margin: .3rem;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 150%;
+  right: .6rem;
+  z-index: 1;
+  list-style-type: none;
+  width: auto;
+  border: $primary-color solid;
 }
