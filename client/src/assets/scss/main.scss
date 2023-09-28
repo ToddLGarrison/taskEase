@@ -52,6 +52,7 @@ a {
 }
 
 .username {
+  color: $accent-color-one;
   font-family: 'Roboto', sans-serif;
   margin-bottom: 0;
   box-sizing: border-box;
@@ -63,14 +64,20 @@ a {
   padding: 11px, 16px;
 }
 
+.user-greeting:hover {
+  color: $primary-color;
+}
+
+.hamburger-icon {
+  margin: .3rem;
+}
+
 .dropdown-menu {
   position: absolute;
-  top: 120%;
-  right: 0;
+  top: 150%;
+  right: .6rem;
   z-index: 1;
   list-style-type: none;
   width: auto;
-  border-bottom: $primary-color solid;
-  border-right: $primary-color solid;
-  border-left: $primary-color solid;
+  border: $primary-color solid;
 }
