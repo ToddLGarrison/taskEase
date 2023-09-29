@@ -1,7 +1,7 @@
 import express from "express";
 import objection from "objection"
 import { ValidationError } from "objection"
-import cleanUserInput from "../../../services/cleanUserInput";
+import cleanUserInput from "../../../services/cleanUserInput.js";
 import { User, ToDoList } from "../../../models/index.js";
 
 const toDoListsRouter = new express.Router();
