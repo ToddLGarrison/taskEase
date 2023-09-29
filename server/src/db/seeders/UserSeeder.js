@@ -4,17 +4,17 @@ class UserSeeder {
     static async seed() {
         const userData = [
             {
-                userName: "Geralt",
+                username: "Geralt",
                 email: "g-money@email.com",
                 password: "roach",
             },
             {
-                userName: "Tilly",
+                username: "Tilly",
                 email: "tilly@email.com",
                 password: "ziggy",
             },
             {
-                userName: "Ziggy",
+                username: "Ziggy",
                 email: "ziggy@email.com",
                 password: "tilly",
             }

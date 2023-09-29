@@ -8,7 +8,7 @@ const toDoListsRouter = new express.Router();
 
 toDoListsRouter.get("/", async (req, res) => {
     try {
-        const toDoList = await ToDoList.query()
+        const toDoLists = await ToDoList.query()
         return res.status(200).json({ toDoLists: toDoLists})
     } catch (error) {
         return res.status(500).json({ errors: error })
