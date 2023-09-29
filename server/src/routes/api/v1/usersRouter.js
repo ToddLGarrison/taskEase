@@ -5,6 +5,15 @@ import { User } from "../../../models/index.js";
 
 const usersRouter = new express.Router();
 
+usersRouter.get("/", async (req, res) => {
+  try {
+    const toDoLists = await req.user.$relatedQuery("toDoLists")
+    return res.status(200).json({ user: req.user, toDoLists: toDoLists })
+  } catch (error) {
+    return res.status(500).json({ errors: error })
+  }
+})
+
 usersRouter.post("/", async (req, res) => {
   const { username, email, password } = req.body;
   try {

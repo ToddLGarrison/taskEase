@@ -3,7 +3,7 @@ import getClientIndexPath from "../config/getClientIndexPath.js";
 
 const router = new express.Router();
 
-const clientRoutes = ["/", "/user-sessions/new", "/users/new"];
+const clientRoutes = ["/", "/user-sessions/new", "/users/new", "/home", "/profile", "/toDoLists", "/toDoLists/:id", "/toDoLists/new", "/:id/tasks"];
 
 const authedClientRoutes = ["/profile"];
 

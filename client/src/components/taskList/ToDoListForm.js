@@ -40,6 +40,7 @@ const ToDoListForm = (props) => {
                 } else {
                     const errorMessage = `${response.status} (${response.statusText})`
                     const error = new Error(errorMessage)
+                    throw error
                 }
             } else {
                 const responseBody = await response.json()
