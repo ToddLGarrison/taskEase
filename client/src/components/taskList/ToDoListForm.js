@@ -25,7 +25,7 @@ const ToDoListForm = (props) => {
 
     const postToDoList = async (newToDoList) => {
         try {
-            const response = await fetch(`/api/v1/toDoLists`, {
+            const response = await fetch(`/api/v1/lists`, {
                 method: "POST",
                 headers: new Headers({
                     "Content-Type": "application/json"
@@ -54,7 +54,7 @@ const ToDoListForm = (props) => {
     }
 
     if (shouldRedirect) {
-        return <Redirect push to={`/toDoLists/${newToDoList.id}`} />
+        return <Redirect push to={`/lists/${newToDoList.id}`} />
     }
 
     return (
