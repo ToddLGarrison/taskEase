@@ -2,7 +2,7 @@ const Model = require("./Model.js")
 
 class ToDoList extends Model {
     static get tableName() {
-        return "todoLists";
+        return "toDoLists";
     }
 
     static get relationshipMappings() {

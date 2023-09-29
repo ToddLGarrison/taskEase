@@ -8,7 +8,7 @@ const rootRouter = new express.Router();
 rootRouter.use("/", clientRouter);
 rootRouter.use("/api/v1/user-sessions", userSessionsRouter);
 rootRouter.use("/api/v1/users", usersRouter);
-rootRouter.use("/api/v1/toDoLists", toDoListsRouter);
+rootRouter.use("/api/v1/lists", toDoListsRouter);
 
 //place your server-side routes here
 
