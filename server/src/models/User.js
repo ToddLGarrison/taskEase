@@ -23,13 +23,29 @@ class User extends uniqueFunc(Model) {
     return Bcrypt.compareSync(password, this.cryptedPassword);
   }
 
+  static get relationMappings() {
+    const { ToDoList } = require("./index.js")
+
+    return {
+      toDoLists: {
+        relation: Model.HasManyRelation,
+        modelClass: ToDoList,
+        join: {
+          from: "users.id",
+          to: "toDoLists.userId"
+        }
+      }
+    }
+  }
+
   static get jsonSchema() {
     return {
       type: "object",
-      required: ["email"],
+      required: ["email", "username"],
 
       properties: {
         email: { type: "string", pattern: "^\\S+@\\S+\\.\\S+$" },
+        username: { type: "string" },
         cryptedPassword: { type: "string" },
       },
     };
