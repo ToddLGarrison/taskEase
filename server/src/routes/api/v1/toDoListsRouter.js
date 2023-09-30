@@ -33,4 +33,14 @@ toDoListsRouter.post("/", async (req, res) => {
     }
 })
 
+toDoListsRouter.get('/:id', async (req, res) => {
+    const toDoListId = req.params.id
+    try {
+        const showToDoList = await ToDoList.query().findById(toDoListId)
+        return res.status(200).json( { toDoList: showToDoList })
+    } catch (error) {
+        return res.status(500).json({ errors: error })
+    }
+})
+
 export default toDoListsRouter
