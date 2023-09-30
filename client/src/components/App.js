@@ -10,6 +10,7 @@ import HomePage from "./pages/HomePage";
 import AuthenticatedRoute from "./authentication/AuthenticatedRoute";
 import UserProfilePage from "./pages/UserProfilePage";
 import ToDoListForm from "./toDoList/ToDoListForm";
+import UserToDoList from "./toDoList/UserToDoListPage";
 import ToDoListShowPage from "./toDoList/ToDoListShowPage";
 
 const App = (props) => {

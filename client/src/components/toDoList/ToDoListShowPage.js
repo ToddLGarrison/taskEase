@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useInsertionEffect } from "react"
+import React, { useState, useEffect } from "react"
 
 const ToDoListShowPage = (props) => {
     const [toDoList, setToDoList] = useState({
@@ -24,7 +24,7 @@ const ToDoListShowPage = (props) => {
         }
     }
 
-    useInsertionEffect(() => {
+    useEffect(() => {
         getToDoList()
     }, [])
 
