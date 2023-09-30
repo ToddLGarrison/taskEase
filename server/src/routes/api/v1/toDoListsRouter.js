@@ -18,6 +18,9 @@ toDoListsRouter.get("/", async (req, res) => {
 toDoListsRouter.post("/", async (req, res) => {
     const { name, description } = req.body
     const { id } = req.user
+
+    // console.log(req)
+
     try {
         const postingUser = await User.query().findById(id)
         const cleanToDoList = cleanUserInput({ name, description })
@@ -28,6 +31,7 @@ toDoListsRouter.post("/", async (req, res) => {
         if (error instanceof ValidationError) {
             res.status(422).json({ errors: error})
         } else {
+            console.error(`Error in toDoListsRouter.post: ${error.message}`);
             return res.status(500).json({ errors: error})
         }
     }
