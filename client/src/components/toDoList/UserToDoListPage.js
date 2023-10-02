@@ -13,8 +13,8 @@ const UserToDoList = (props) => {
                 throw(error)
             }
             const body = await response.json()
-            console.log(`BODY`, body)
-            console.log(`RESPONSE`, response)
+            // console.log(`BODY`, body)
+            // console.log(`RESPONSE`, response)
 
             if(!body.toDoLists) {
                 throw new Error("Invalid response format: missing 'toDoLists' property")
