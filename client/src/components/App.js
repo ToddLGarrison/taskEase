@@ -9,7 +9,9 @@ import TopBar from "./layout/TopBar";
 import HomePage from "./pages/HomePage";
 import AuthenticatedRoute from "./authentication/AuthenticatedRoute";
 import UserProfilePage from "./pages/UserProfilePage";
-import ToDoListForm from "./taskList/ToDoListForm";
+import ToDoListForm from "./toDoList/ToDoListForm";
+import UserToDoList from "./toDoList/UserToDoListPage";
+import ToDoListShowPage from "./toDoList/ToDoListShowPage";
 
 const App = (props) => {
   const [currentUser, setCurrentUser] = useState(undefined);
@@ -35,6 +37,8 @@ const App = (props) => {
         <Route exact path="/user-sessions/new" component={SignInForm} />
         <AuthenticatedRoute exact path="/profile" component={UserProfilePage} user={currentUser} />
         <AuthenticatedRoute exact path="/lists/new" component={ToDoListForm} user={currentUser} />
+        <Route exact path="/lists" render={(props) => <UserToDoList user={currentUser} {...props}/>}  />
+        <Route exact path="/lists/:id" render={(props) => <ToDoListShowPage user={currentUser} {...props}/>}  />
       </Switch>
     </Router>
   );

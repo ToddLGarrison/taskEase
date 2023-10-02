@@ -23,14 +23,14 @@ const ToDoListForm = (props) => {
         postToDoList(newToDoList)
     }
 
-    const postToDoList = async (newToDoList) => {
+    const postToDoList = async (newToDoListData) => {
         try {
             const response = await fetch(`/api/v1/lists`, {
                 method: "POST",
                 headers: new Headers({
                     "Content-Type": "application/json"
                 }),
-                body: JSON.stringify(newToDoList)
+                body: JSON.stringify(newToDoListData)
             })
             if(!response.ok){
                 if(response.status === 422) {
