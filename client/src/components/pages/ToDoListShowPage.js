@@ -32,6 +32,7 @@ const ToDoListShowPage = (props) => {
         <div className="to-do-list-box">
             <div className="to-do-list-header-box">
                 <h2 className="to-do-list-form-title">{toDoList.name}</h2>
+                <h3 className="to-do-list-form-description">{toDoList.description}</h3>
             </div>
         </div>
     )

@@ -10,8 +10,8 @@ import HomePage from "./pages/HomePage";
 import AuthenticatedRoute from "./authentication/AuthenticatedRoute";
 import UserProfilePage from "./pages/UserProfilePage";
 import ToDoListForm from "./toDoList/ToDoListForm";
-import UserToDoList from "./toDoList/UserToDoListPage";
-import ToDoListShowPage from "./toDoList/ToDoListShowPage";
+import UserToDoList from "./pages/UserToDoListPage";
+import ToDoListShowPage from "./pages/ToDoListShowPage";
 
 const App = (props) => {
   const [currentUser, setCurrentUser] = useState(undefined);

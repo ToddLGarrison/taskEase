@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import ToDoListTile from "./ToDoListTile";
+import ToDoListTile from "../toDoList/ToDoListTile.js";
 
 const UserToDoList = (props) => {
     const [userToDoLists, setUserToDoLists] = useState([])
