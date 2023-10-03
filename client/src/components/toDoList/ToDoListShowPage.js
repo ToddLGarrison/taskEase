@@ -10,7 +10,7 @@ const ToDoListShowPage = (props) => {
     const getToDoList = async () => {
         try {
             const toDoListId = props.match.params.id
-            const response = await fetch(`/api/v1/lists/${toDoListId}`)
+            const response = await fetch(`/api/v1/Lists/${toDoListId}`)
             if (!response) {
                 const errorMessage = `${response.status} (${response.statusText})`
                 const error = new Error(errorMessage)

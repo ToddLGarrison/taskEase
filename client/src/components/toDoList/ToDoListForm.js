@@ -44,7 +44,7 @@ const ToDoListForm = (props) => {
                 }
             } else {
                 const responseBody = await response.json()
-                const updateToDoList = responseBody.newToDoLists
+                const updateToDoList = responseBody.toDoLists
                 setNewToDoList({...newToDoList, id: updateToDoList.id})
                 setShouldRedirect(true)
             }

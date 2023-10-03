@@ -5,7 +5,7 @@ const ToDoListTile = props => {
 
     return (
         <div className="ToDoListTile callout">
-            <a href={`/toDoLists/${props.toDoList.id}`} >
+            <a href={`/Lists/${props.toDoList.id}`} >
                 <h3>{name}</h3>
             </a>
                 <p className="todo-list-description">{description}</p>
