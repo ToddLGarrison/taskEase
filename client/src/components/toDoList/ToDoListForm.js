@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import ErrorList from "../layout/ErrorList"
 import translateServerErrors from "../../services/translateServerErrors"
 import { Redirect } from "react-router-dom";
+import ToDoListEditForm from "../editDelete/ToDoListEditForm";
 
 const ToDoListForm = (props) => {
     const [errors, setErrors] = useState([])
     const [shouldRedirect, setShouldRedirect] = useState(false)
+    const [isEditing, setIsEditing] = useState(false);
     const [newToDoList, setNewToDoList] = useState({
         name:"",
         description: ""
@@ -21,6 +23,10 @@ const ToDoListForm = (props) => {
     const handleSubmit = (event) => {
         event.preventDefault()
         postToDoList(newToDoList)
+    }
+
+    const handleEditClick = () => {
+        setIsEditing(true)
     }
 
     const postToDoList = async (newToDoListData) => {
