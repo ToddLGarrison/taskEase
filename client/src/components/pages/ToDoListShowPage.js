@@ -83,11 +83,28 @@ const ToDoListShowPage = (props) => {
         )
     }
 
+    let editButton
+
+    const editToDoList = () => {
+        setShouldRedirect({ status: true, newToDoListId: toDoList?.id })
+    }
+
+    if (props.user?.id === toDoList.userId){
+        editButton = <button className="button edit-button" onClick={editToDoList}>Edit ToDo List</button>
+    }
+
+    if (shouldRedirect) {
+        return <Redirect push to={`List/${shouldRedirect.newToDoListId}/edit`}/>
+    }
+
     return (
         <div className="to-do-list-box">
             <div className="to-do-list-header-box">
                 <h2 className="to-do-list-form-title">{toDoList.name}</h2>
                 {toDoListDescriptionSection}
+            </div>
+            <div className="edit-todo-list-button">
+                {editButton}
             </div>
             <div className="to-do-list-task-box">
                 <TaskList tasks={tasks} />
