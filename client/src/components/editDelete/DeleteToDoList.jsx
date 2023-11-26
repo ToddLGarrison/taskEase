@@ -13,6 +13,7 @@ const DeleteToDoList = async () => {
                 "Content-Type": "application/json"
             }),
         })
+
         if(!response.ok) {
             if(response.status === 422) {
                 const errorBody = await response.json
@@ -21,6 +22,7 @@ const DeleteToDoList = async () => {
             } else {
                 const errorMessage = `${response.status} (${response.statusText})`
                 const error = new Error(errorMessage)
+                throw error
             }
         } else {
             const responseBody = await response.json()
