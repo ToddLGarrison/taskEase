@@ -11,7 +11,7 @@ const DeleteButton = () => {
     }
 
     return (
-        <button onClick={onDelete} className='delete-button'>
+        <button onClick={onDelete} className='delete-button button'>
                 Delete Task List
             </button>
     )
