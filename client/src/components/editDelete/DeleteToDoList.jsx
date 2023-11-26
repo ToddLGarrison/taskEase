@@ -26,7 +26,7 @@ const DeleteToDoList = async () => {
             }
         } else {
             const responseBody = await response.json()
-            setShouldRedirect({ status: true, newListId})
+            setShouldRedirect(true)
         }
     } catch (error) {
         console.error(`Error in Fetch: `, error.message)
