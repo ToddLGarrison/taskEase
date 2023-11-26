@@ -1,5 +1,5 @@
 import React from "react";
-import DeleteToDoList from "./DeleteToDoList.jsx";
+import DeleteToDoList from "./DeleteToDoList.js";
 import { useHistory } from "react-router-dom";
 
 const DeleteButton = () => {

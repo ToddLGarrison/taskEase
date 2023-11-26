@@ -3,7 +3,7 @@ import TaskForm from "../tasks/TaskForm"
 import TaskList from "../tasks/TaskList"
 import translateServerErrors from "../../services/translateServerErrors"
 import { Redirect } from "react-router-dom"
-import DeleteButton from "../editDelete/DeleteButton.jsx"
+import DeleteButton from "../editDelete/DeleteButton.js"
 
 const ToDoListShowPage = (props) => {
     const [toDoList, setToDoList] = useState({
