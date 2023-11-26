@@ -28,6 +28,10 @@ const App = (props) => {
     fetchCurrentUser()
   }, [])
 
+  if(currentUser === undefined) {
+    return <div>Loading....</div>
+  }
+
   return (
     <Router>
       <TopBar user={currentUser} />
