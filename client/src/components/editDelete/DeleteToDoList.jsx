@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import translateServerErrors from "../../services/translateServerErrors.js";
 
-const DeleteToDoList = async () => {
+const DeleteToDoList = async (props) => {
     const [errors, setErrors] = useState([])
     const [shouldRedirect, setShouldRedirect] = useState(false)
     const listId = props.match.params.id
@@ -16,7 +16,7 @@ const DeleteToDoList = async () => {
 
         if(!response.ok) {
             if(response.status === 422) {
-                const errorBody = await response.json
+                const errorBody = await response.json()
                 const newErrors = translateServerErrors(errorBody.errors.data)
                 return setErrors(newErrors)
             } else {
