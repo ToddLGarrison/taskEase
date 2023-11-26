@@ -17,6 +17,11 @@ class UserSeeder {
                 username: "Ziggy",
                 email: "ziggy@email.com",
                 password: "tilly",
+            },
+            {
+                username: "Cinder",
+                email: "cinder@email.com",
+                password: "1234",
             }
         ]
         for (const singleUserData of userData) {

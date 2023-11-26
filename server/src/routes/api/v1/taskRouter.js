@@ -3,7 +3,7 @@ import objection from 'objection'
 import { ValidationError } from 'objection';
 import { Task } from '../../../models/index.js';
 import TaskSerializer from '../../../serializers/TaskSerializer.js';
-import cleanUserInput from '../../../services/cleanUserInput';
+import cleanUserInput from '../../../services/cleanUserInput.js';
 
 const taskRouter = new express.Router({ mergeParams: true });
 

@@ -7,10 +7,10 @@ const HomePage = (props) => {
             <div className="grid homepage">
                 <h2 className="homepage-title">Conquer your todo's with TaskEase</h2>
                 <div>
-                    {props.user ?(
+                    {props.user ? (
                         <div>
                             <a href="/lists/new" className="create-list-call">Create a new list</a>
-                            <a href="/lists" className="go-to-list-call">See your lists</a>ß
+                            <a href="/lists" className="go-to-list-call">See your lists</a>
                         </div>
                     ) : (
                         <div>
