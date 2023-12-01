@@ -1,4 +1,6 @@
 import React from "react";
+import Footer from "../layout/Footer";
+
 
 const HomePage = (props) => {
 
@@ -18,7 +20,7 @@ const HomePage = (props) => {
                         </div>
                     ) }
                 </div>
-                
+                <Footer />
             </div>
 
         </div>
