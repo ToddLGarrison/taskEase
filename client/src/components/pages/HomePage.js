@@ -18,7 +18,7 @@ const HomePage = (props) => {
                         </div>
                     ) }
                 </div>
-                <p className="developed-by-text">Developed by Todd Garrison</p>
+                
             </div>
 
         </div>
