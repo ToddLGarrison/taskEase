@@ -104,7 +104,12 @@ a {
 //task list
 
 .task-box {
-  background-color: $card-color;
+  background-color: #fff;
+  border-radius: 7px;
+  box-shadow: 0 2px 5px #ccc;
+  padding: .5em;
+  width: 240px;
+  margin: 16px;
 }
 
 
