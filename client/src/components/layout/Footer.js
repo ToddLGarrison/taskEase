@@ -7,7 +7,7 @@ const Footer = () => {
 
     return ( 
         <div>
-            <p className="developed-by-text">Developed by Todd Garrison | Copyright {currentYear}</p>
+            <p className="footer">Developed by Todd Garrison | Copyright {currentYear}</p>
         </div>)
 }
 
