@@ -64,8 +64,8 @@ const ToDoListForm = (props) => {
     }
 
     return (
-        <div className="callout form-box">
-            <h2 className="form-title">Create New ToDo List</h2>
+        <div className="form-box">
+            <h3 className="form-title">Create New ToDo List</h3>
             <ErrorList errors={errors}/>
             <form onSubmit={handleSubmit}>
                 <label>

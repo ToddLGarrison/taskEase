@@ -10,6 +10,8 @@ $primary-color: #007bff;
 $secondary-color: #6c757d;
 $accent-color-one: #28a746;
 $accent-color-two: #dc3545;
+$header-color: #f5ba13;
+$card-color: #fff;
 
 
 
@@ -26,6 +28,7 @@ $accent-color-two: #dc3545;
 
 body {
   background-color: $main-background-color;
+  padding: 0 .8em;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -50,6 +53,12 @@ a {
 //navbar & dropdown menu
 .navbar-border {
   border-bottom: 1px $primary-color solid;
+}
+
+.top-bar {
+  margin: auto -16px;
+  padding: .8rem;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3)
 }
 
 .username {
@@ -83,7 +92,49 @@ a {
   border: $primary-color solid;
 }
 
+//footer
+.footer {
+  color: $secondary-color;
+  position: absolute;
+  text-align: center;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;
+}
+
+
 //form
 .form-title {
   font-family: Arial, Helvetica, sans-serif;
+}
+
+//task list
+
+.task-box {
+  background-color: #fff;
+  border-radius: 7px;
+  box-shadow: 0 2px 5px #ccc;
+  padding: .5rem;
+  width: 240px;
+  margin: 16px;
+}
+
+
+.task-title {
+  font-size: 1.1em;
+  margin-bottom: 6px;
+}
+
+//forms
+
+.form-box {
+  font-size: 1.1em;
+  margin-bottom: 6px;
+  background-color: #fff;
+  border-radius: 7px;
+  box-shadow: 0 2px 5px #ccc;
+  padding: .5rem;
+  width: 240px;
+  margin: 16px;
+  position: fixed;
 }
