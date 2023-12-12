@@ -10,6 +10,7 @@ $primary-color: #007bff;
 $secondary-color: #6c757d;
 $accent-color-one: #28a746;
 $accent-color-two: #dc3545;
+$header-color: #f5ba13;
 
 
 
@@ -86,4 +87,13 @@ a {
 //form
 .form-title {
   font-family: Arial, Helvetica, sans-serif;
+}
+
+//top bar
+.top-bar {
+  background-color: $header-color;
+}
+
+.menu {
+  background-color: $header-color;
 }
