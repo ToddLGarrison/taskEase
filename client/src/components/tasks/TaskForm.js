@@ -28,7 +28,7 @@ const TaskForm = ({ postTask, errors }) => {
     }
 
     return (
-        <div className="callout task-form-box">
+        <div className="callout form-box">
             <h4 className="form-title">Add A Task</h4>
             <ErrorList errors={errors} />
             <form onSubmit={handleSubmit}>
