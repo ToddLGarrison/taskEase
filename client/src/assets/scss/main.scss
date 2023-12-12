@@ -11,6 +11,7 @@ $secondary-color: #6c757d;
 $accent-color-one: #28a746;
 $accent-color-two: #dc3545;
 $header-color: #f5ba13;
+$card-color: #fff;
 
 
 
@@ -99,3 +100,17 @@ a {
 .form-title {
   font-family: Arial, Helvetica, sans-serif;
 }
+
+//task list
+
+.task-box {
+  background-color: $card-color;
+}
+
+
+.task-title {
+  font-size: 1.1em;
+  margin-bottom: 6px;
+}
+
+//task item
