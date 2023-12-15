@@ -6,7 +6,7 @@ import Footer from "../layout/Footer";
 
 
 const HomePage = (props) => {
-
+    console.log("props", props)
     return (
         <div className="primary home-box">
             <div className="grid homepage">
