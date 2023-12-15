@@ -1,7 +1,7 @@
 import React from "react";
 import LoggedIn from "./LoggedIn";
 import LogInCTA from "./LogInCTA";
-import Footer from "../layout/Footer";
+import Footer from "../../layout/Footer";
 
 
 

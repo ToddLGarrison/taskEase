@@ -6,7 +6,7 @@ import "../assets/scss/main.scss";
 import RegistrationForm from "./registration/RegistrationForm";
 import SignInForm from "./authentication/SignInForm";
 import TopBar from "./layout/TopBar";
-import HomePage from "./pages/HomePage";
+import HomePage from "./pages/homepage/HomePage";
 import AuthenticatedRoute from "./authentication/AuthenticatedRoute";
 import UserProfilePage from "./pages/UserProfilePage";
 import ToDoListForm from "./toDoList/ToDoListForm";
