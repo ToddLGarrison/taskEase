@@ -1,5 +1,6 @@
 import React from "react";
 import LoggedIn from "./LoggedIn";
+import LogInCTA from "./LogInCTA";
 import Footer from "../layout/Footer";
 
 
@@ -9,14 +10,12 @@ const HomePage = (props) => {
     return (
         <div className="primary home-box">
             <div className="grid homepage">
-                <h2 className="homepage-title">Conquer your todo's with TaskEase</h2>
+                <h2 className="homepage-title">Conquer your ToDo's with TaskEase</h2>
                 <div>
                     {props.user ? (
                         <LoggedIn />
                     ) : (
-                        <div>
-                            <p className="login-call">Please <a href="/user-sessions/new">login</a> to manage your lists</p>
-                        </div>
+                        <LogInCTA />
                     ) }
                 </div>
                 <Footer />
