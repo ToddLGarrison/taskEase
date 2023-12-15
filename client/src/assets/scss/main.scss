@@ -62,7 +62,7 @@ a {
 }
 
 .username {
-  color: $accent-color-one;
+  color: $primary-color;
   font-family: 'Roboto', sans-serif;
   margin-bottom: 0;
   box-sizing: border-box;
@@ -75,7 +75,7 @@ a {
 }
 
 .user-greeting:hover {
-  color: $primary-color;
+  color: $main-background-color;
 }
 
 .hamburger-icon {
