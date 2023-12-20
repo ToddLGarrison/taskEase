@@ -34,7 +34,7 @@ taskRouter.get('/:id', async (req, res) => {
 
 taskRouter.post('/', async (req, res) => {
     const body = cleanUserInput(req.body)
-    const toDoListIdParams = re.params.id
+    const toDoListIdParams = req.params.id
     const user = req.user
     const taskDataWithId = {...body, toDoListId: toDoListIdParams, userId: user.id}
 

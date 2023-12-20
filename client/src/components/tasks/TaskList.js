@@ -3,13 +3,13 @@ import TaskItem from "./TaskItem";
 
 const TaskList = ({ tasks }) => {
 
-    const taskList = tasks.map((task) => {
+    const taskList = tasks ? tasks.map((task) => {
         <TaskItem
             key={task.id}
             task={task}
             description={task.description}
         />
-    })
+    }) : []
 
     return (
         <div className="task-box">
