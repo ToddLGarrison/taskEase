@@ -2,6 +2,7 @@
 import { connection } from "../boot.js"
 import UserSeeder from "./seeders/UserSeeder.js"
 import ToDoListSeeder from "./seeders/ToDoListSeeder.js"
+import TaskSeeder from "./seeders/TaskSeeder.js"
 
 class Seeder {
   static async seed() {
@@ -10,6 +11,9 @@ class Seeder {
 
     console.log("Seeding toDo Lists...")
     await ToDoListSeeder.seed()
+
+    console.log("Seeding tasks...")
+    await TaskSeeder.seed()
 
     console.log("Done!")
     await connection.destroy()
