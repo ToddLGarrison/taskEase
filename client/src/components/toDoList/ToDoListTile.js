@@ -1,7 +1,11 @@
 import React from "react";
 
-const ToDoListTile = props => {
+const ToDoListTile = (props) => {
     const { name, description } = props.toDoList
+
+    // function handleClick(){
+        
+    // }
 
     return (
         <div className="task-box">

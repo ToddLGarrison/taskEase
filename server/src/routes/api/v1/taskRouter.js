@@ -24,7 +24,7 @@ taskRouter.get('/:id', async (req, res) => {
     try {
         const task = await Task.query().findById(taskId)
         if(!task) {
-            return res.status(404).json({ errors: error })
+            return res.status(404).json({ status: "Task not found" });
         }
         return res.status(200).json({ task })
     } catch (error) {
@@ -33,8 +33,9 @@ taskRouter.get('/:id', async (req, res) => {
 })
 
 taskRouter.post('/', async (req, res) => {
-    const body = cleanUserInput(req.body)
-    const toDoListIdParams = re.params.id
+    const rawBody = req.body
+    const body = cleanUserInput(rawBody)
+    const toDoListIdParams = req.params.id
     const user = req.user
     const taskDataWithId = {...body, toDoListId: toDoListIdParams, userId: user.id}
 
@@ -47,6 +48,26 @@ taskRouter.post('/', async (req, res) => {
             return res.status(422).json({ errors: error })
         }
         return res.status(500).json({ errors: error })
+    }
+})
+
+taskRouter.delete("/:id", async (req, res) => {
+    const taskId = req.params.id
+
+    try {
+        const taskToDelete = await Task.query().findById(taskId)
+        if(taskToDelete) {
+            await Task.query().delete().where("id", "=", taskId)
+            return res.status(200).json({ status: "Task deleted" })
+        } else {
+            return res.status(404).json({ status: "Task not found" })
+        }
+    } catch (error) {
+        if (error instanceof ValidationError) {
+            return res.status(422).json({ errors: error })
+        } else {
+            return res.status(500).json({ errors: error })
+        }
     }
 })
 

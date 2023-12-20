@@ -2,8 +2,7 @@ import express from "express";
 import objection from "objection"
 import { ValidationError } from "objection"
 import cleanUserInput from "../../../services/cleanUserInput.js";
-import { User, ToDoList } from "../../../models/index.js";
-import taskRouter from "./taskRouter.js";
+import { User, ToDoList, Task } from "../../../models/index.js";
 
 const toDoListsRouter = new express.Router();
 
@@ -19,8 +18,6 @@ toDoListsRouter.get("/", async (req, res) => {
 toDoListsRouter.post("/", async (req, res) => {
     const { name, description } = req.body
     const { id } = req.user
-
-    // console.log(req)
 
     try {
         const postingUser = await User.query().findById(id)
@@ -40,14 +37,78 @@ toDoListsRouter.post("/", async (req, res) => {
 
 toDoListsRouter.get('/:id', async (req, res) => {
     const toDoListId = req.params.id
-    console.log(`req`, req)
+    // console.log(`req`, req)
     try {
         const showToDoList = await ToDoList.query().findById(toDoListId)
-        console.log(`showToDoList`, toDoListId )
+        if(!showToDoList) {
+            return res.status(404).json({ status: "ToDo List Not Found" })
+        }
+        const tasks = await showToDoList.$relatedQuery("tasks")
+        showToDoList.tasks = tasks
+        // console.log(`showToDoList`, toDoListId )
         return res.status(200).json( { toDoList: showToDoList })
     } catch (error) {
+        console.error(`Error in toDoListsRouter.get/:id: ${error.message}`)
         return res.status(500).json({ errors: error })
     }
 })
+
+toDoListsRouter.patch("/:id", async (req, res) => {
+    const { name, description } = req.body
+    const { id } = req.user
+    const toDoListId = req.params.id
+
+    try {
+        const toDoListToUpdate = await ToDoList.query().findById(toDoListId)
+        if(!toDoListToUpdate) {
+            return res.status(404).json({ status: "ToDo List Not Found" })
+        }
+        if(id === toDoListToUpdate.userId) {
+            const cleanToDoList = cleanUserInput({ name, description })
+            const updateToDoList = await ToDoList.query().patchAndFetchById(toDoListId, {
+                name: cleanToDoList.name,
+                description: cleanToDoList.description
+            })
+            return res.status(200).json({ toDoList: updateToDoList })
+        } else {
+            return res.status(404).json({ status: "Update Failed" })
+        }
+    } catch (error) {
+        if (error instanceof ValidationError) {
+            res.status(422).json({ errors: error })
+        } else {
+            console.error(`Error in toDoListsRouter.patch/:id: ${error.message}`)
+            return res.status(500).json({ errors: error })
+        }
+    }
+})
+
+toDoListsRouter.delete("/:id", async (req, res) => {
+    const { id } = req.user
+    const toDoListId = req.params.id
+
+    try {
+        const toDoListToDelete = await ToDoList.query().findById(toDoListId)
+        if(!toDoListToDelete) {
+            return res.status(404).json({ status: "ToDo List Not Found" })
+        }
+        if (id === toDoListToDelete.userId) {
+            await Task.query().delete().where("toDoListId", "=", toDoListId)
+            await ToDoList.query().delete().where("id", "=", toDoListId)
+            return res.status(200).json({ status: "ToDo List Deleted"})
+        } else {
+            return res.status(404).json({ status: "Error with Deleting"})
+        }
+    } catch (error) {
+        if (error instanceof ValidationError) {
+            return res.status(422).json({ errors: error })
+        } else {
+            console.error(`Error in toDoListsRouter.delete/:id: ${error.message}`)
+            return res.status(500).json({ errors: error })
+        }
+    }
+})
+
+toDoListsRouter.use("/:id/tasks", tasksRouter)
 
 export default toDoListsRouter

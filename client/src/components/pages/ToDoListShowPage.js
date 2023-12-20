@@ -39,7 +39,11 @@ const ToDoListShowPage = (props) => {
             } else {
                 const body = await response.json()
                 setErrors([])
-                return setTasks([...tasks, body.task])
+                // return setTasks([...tasks, body.task])
+                setToDoList((prevToDoList) =>({
+                    ...prevToDoList,
+                    tasks: [...prevToDoList.tasks, body.task]
+                }))
             }
         } catch (error) {
             console.error(`Error in fetch ${error.message}`)
@@ -57,7 +61,7 @@ const ToDoListShowPage = (props) => {
             }
             const responseBody = await response.json()
             setToDoList(responseBody.toDoList)
-            //setTasks(responseBody.toDoList.tasks)
+            setTasks(responseBody.toDoList.tasks)
         } catch (error) {
             console.error(`Error in Fetch: ${error.message}`)
         }
@@ -84,6 +88,8 @@ const ToDoListShowPage = (props) => {
         )
     }
 
+    let tasksToDisplay = tasks
+
     let editButton
 
     const editToDoList = () => {
@@ -109,7 +115,7 @@ const ToDoListShowPage = (props) => {
                 <DeleteButton {...props} />
             </div>
             <div className="to-do-list-task-box">
-                <TaskList tasks={tasks} />
+                <TaskList tasks={tasksToDisplay} />
                     {taskForm}
             </div>
         </div>
