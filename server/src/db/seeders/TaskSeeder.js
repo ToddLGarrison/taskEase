@@ -7,32 +7,32 @@ class TaskSeeder {
         const tilly = await User.query().findOne({ email: "tilly@email.com" })
         const ziggy = await User.query().findOne({ email: "ziggy@email.com" })
 
-        const hikingTrip = await ToDoList.query().findOne({ name: "Hiking Trip" })
+        const hikingTrip = await ToDoList.query().findOne({ name: "Hiking trip" })
         const dinnerParty = await ToDoList.query().findOne({ name: "Dinner Party" })
         const horseSupplies = await ToDoList.query().findOne({ name: "Horse supplies" })
         const cleaningList = await ToDoList.query().findOne({ name: "Cleaning list" })
 
         const taskData = [
             {
-                name: "Buy food",
+                task: "Buy food",
                 description: "We need to eat",
                 userId: bilbo.id,
                 toDoListId: hikingTrip.id,
             },
             {
-                name: "Clean house",
+                task: "Clean house",
                 description: "Kitchen is dirty",
                 userId: geralt.id,
                 toDoListId: dinnerParty.id,
             },
             {
-                name: "Hay",
+                task: "Hay",
                 description: "They're hungry",
                 userId: tilly.id,
                 toDoListId: horseSupplies.id,
             },
             {
-                name: "bleach",
+                task: "bleach",
                 description: "It'll clean ya out but leave you hollow inside",
                 userId: ziggy.id,
                 toDoListId: cleaningList.id
