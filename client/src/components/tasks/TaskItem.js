@@ -12,8 +12,7 @@ const TaskItem = ({ task }) => {
     return (
         <div className="task-item" onClick={handleClick}>
             <li style={{ textDecoration: isDone ? "line-through" : "none"}}>
-                <h4>{task.title}</h4>
-                <p>{task.description}</p>
+                <p>{task.title} - {task.description}</p>
             </li>
         </div>
     )
