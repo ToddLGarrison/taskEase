@@ -39,7 +39,11 @@ const ToDoListShowPage = (props) => {
             } else {
                 const body = await response.json()
                 setErrors([])
-                return setTasks([...tasks, body.task])
+                // return setTasks([...tasks, body.task])
+                setToDoList((prevToDoList) =>({
+                    ...prevToDoList,
+                    tasks: [...prevToDoList.tasks, body.task]
+                }))
             }
         } catch (error) {
             console.error(`Error in fetch ${error.message}`)
