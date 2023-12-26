@@ -3,6 +3,7 @@ import objection from "objection"
 import { ValidationError } from "objection"
 import cleanUserInput from "../../../services/cleanUserInput.js";
 import { User, ToDoList, Task } from "../../../models/index.js";
+import tasksRouter from "./taskRouter.js"
 
 const toDoListsRouter = new express.Router();
 
