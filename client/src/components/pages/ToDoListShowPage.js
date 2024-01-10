@@ -50,7 +50,9 @@ const ToDoListShowPage = (props) => {
     const getToDoList = async () => {
         try {
             const toDoListId = props.match.params.id;
+            console.log('ID!', toDoListId);
             const response = await fetch(`/api/v1/lists/${toDoListId}`);
+            console.log('response!!!', response);
             
             if (!response.ok) {
                 const errorMessage = `${response.status} (${response.statusText})`;
@@ -59,6 +61,8 @@ const ToDoListShowPage = (props) => {
             }
     
             const responseBody = await response.json();
+            console.log('responseBody', responseBody);
+
             setToDoList(responseBody.toDoList);
             setTasks(responseBody.toDoList.tasks);
         } catch (error) {
