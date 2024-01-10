@@ -52,20 +52,22 @@ const ToDoListShowPage = (props) => {
 
     const getToDoList = async () => {
         try {
-            const toDoListId = props.match.params.id
-            const response = await fetch(`/api/v1/Lists/${toDoListId}`)
-            if (!response) {
-                const errorMessage = `${response.status} (${response.statusText})`
-                const error = new Error(errorMessage)
-                throw(error)
+            const toDoListId = props.match.params.id;
+            const response = await fetch(`/api/v1/Lists/${toDoListId}`);
+            
+            if (!response.ok) {
+                const errorMessage = `${response.status} (${response.statusText})`;
+                const error = new Error(errorMessage);
+                throw error;
             }
-            const responseBody = await response.json()
-            setToDoList(responseBody.toDoList)
-            setTasks(responseBody.toDoList.tasks)
+    
+            const responseBody = await response.json();
+            setToDoList(responseBody.toDoList);
+            setTasks(responseBody.toDoList.tasks);
         } catch (error) {
-            console.error(`Error in Fetch: ${error.message}`)
+            console.error(`Error in Fetch: ${error.message}`);
         }
-    }
+    };
 
     useEffect(() => {
         getToDoList()
