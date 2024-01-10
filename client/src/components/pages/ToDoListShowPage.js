@@ -19,8 +19,8 @@ const ToDoListShowPage = (props) => {
     const postTask = async (newTask) => {
         try {
             const toDoListId = props.match.params.id;
-            const response = await fetch(`/api/v1/Lists/${toDoListId}/tasks`, {
-                method: "POST",  // Corrected method name
+            const response = await fetch(`/api/v1/lists/${toDoListId}/tasks`, {
+                method: "POST",
                 headers: new Headers({
                     "Content-Type": "application/json"
                 }),
@@ -50,7 +50,7 @@ const ToDoListShowPage = (props) => {
     const getToDoList = async () => {
         try {
             const toDoListId = props.match.params.id;
-            const response = await fetch(`/api/v1/Lists/${toDoListId}`);
+            const response = await fetch(`/api/v1/lists/${toDoListId}`);
             
             if (!response.ok) {
                 const errorMessage = `${response.status} (${response.statusText})`;
@@ -100,7 +100,7 @@ const ToDoListShowPage = (props) => {
     }
 
     if (shouldRedirect) {
-        return <Redirect push to={`List/${shouldRedirect.newToDoListId}/edit`}/>
+        return <Redirect push to={`list/${shouldRedirect.newToDoListId}/edit`}/>
     }
 
     return (

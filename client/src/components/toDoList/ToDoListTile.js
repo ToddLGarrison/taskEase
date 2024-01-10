@@ -9,7 +9,7 @@ const ToDoListTile = (props) => {
 
     return (
         <div className="task-box">
-            <a href={`/Lists/${props.toDoList.id}`} >
+            <a href={`/lists/${props.toDoList.id}`} >
                 <h3>{name}</h3>
             </a>
                 <p className="todo-list-description">{description}</p>
