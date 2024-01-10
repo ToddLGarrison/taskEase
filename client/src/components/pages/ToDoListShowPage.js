@@ -18,37 +18,34 @@ const ToDoListShowPage = (props) => {
 
     const postTask = async (newTask) => {
         try {
-            const toDoListId = props.match.params.id
+            const toDoListId = props.match.params.id;
             const response = await fetch(`/api/v1/Lists/${toDoListId}/tasks`, {
-                method: "Post",
+                method: "POST",  // Corrected method name
                 headers: new Headers({
                     "Content-Type": "application/json"
-            }),
-            body: JSON.stringify(newTask)
-        })
-            if(!response.ok) {
-                if(response.status === 422) {
-                    const errorBody = await response.json()
-                    const newErrors = translateServerErrors(errorBody.errors.data)
-                    return setErrors(newErrors)
+                }),
+                body: JSON.stringify(newTask),
+            });
+    
+            if (!response.ok) {
+                if (response.status === 422) {
+                    const errorBody = await response.json();
+                    const newErrors = translateServerErrors(errorBody.errors.data);
+                    return setErrors(newErrors);
                 } else {
-                    const errorMessage = `${response.status} (${response.statusText})`
-                    const error = new Error(errorMessage)
-                    throw(error)
+                    const errorMessage = `${response.status} (${response.statusText})`;
+                    const error = new Error(errorMessage);
+                    throw error;
                 }
             } else {
-                const body = await response.json()
-                setErrors([])
-                // return setTasks([...tasks, body.task])
-                setToDoList((prevToDoList) =>({
-                    ...prevToDoList,
-                    tasks: [...prevToDoList.tasks, body.task]
-                }))
+                const body = await response.json();
+                setErrors([]);
+                setTasks([...tasks, body.task]);
             }
         } catch (error) {
-            console.error(`Error in fetch ${error.message}`)
+            console.error(`Error in fetch ${error.message}`);
         }
-    }
+    };
 
     const getToDoList = async () => {
         try {
