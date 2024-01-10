@@ -50,6 +50,32 @@ a {
   font-size: xx-large;
 }
 
+//homepage
+.home-action-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 15vh;
+}
+
+.home-action {
+  text-align: center;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px #ccc;
+  padding: 1.5rem;
+  width: 20rem;
+  margin: 16px;
+}
+
+.go-to-list-call {
+  margin-left: 24px;
+}
+
+.home-action a {
+  font-size: 1.2rem;
+}
+
 //navbar & dropdown menu
 .navbar-border {
   border-bottom: 1px $primary-color solid;

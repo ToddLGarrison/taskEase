@@ -18,54 +18,57 @@ const ToDoListShowPage = (props) => {
 
     const postTask = async (newTask) => {
         try {
-            const toDoListId = props.match.params.id
-            const response = await fetch(`/api/v1/Lists/${toDoListId}/tasks`, {
-                method: "Post",
+            const toDoListId = props.match.params.id;
+            const response = await fetch(`/api/v1/lists/${toDoListId}/tasks`, {
+                method: "POST",
                 headers: new Headers({
                     "Content-Type": "application/json"
-            }),
-            body: JSON.stringify(newTask)
-        })
-            if(!response.ok) {
-                if(response.status === 422) {
-                    const errorBody = await response.json()
-                    const newErrors = translateServerErrors(errorBody.errors.data)
-                    return setErrors(newErrors)
+                }),
+                body: JSON.stringify(newTask),
+            });
+    
+            if (!response.ok) {
+                if (response.status === 422) {
+                    const errorBody = await response.json();
+                    const newErrors = translateServerErrors(errorBody.errors.data);
+                    return setErrors(newErrors);
                 } else {
-                    const errorMessage = `${response.status} (${response.statusText})`
-                    const error = new Error(errorMessage)
-                    throw(error)
+                    const errorMessage = `${response.status} (${response.statusText})`;
+                    const error = new Error(errorMessage);
+                    throw error;
                 }
             } else {
-                const body = await response.json()
-                setErrors([])
-                // return setTasks([...tasks, body.task])
-                setToDoList((prevToDoList) =>({
-                    ...prevToDoList,
-                    tasks: [...prevToDoList.tasks, body.task]
-                }))
+                const body = await response.json();
+                setErrors([]);
+                setTasks([...tasks, body.task]);
             }
         } catch (error) {
-            console.error(`Error in fetch ${error.message}`)
+            console.error(`Error in fetch ${error.message}`);
         }
-    }
+    };
 
     const getToDoList = async () => {
         try {
-            const toDoListId = props.match.params.id
-            const response = await fetch(`/api/v1/Lists/${toDoListId}`)
-            if (!response) {
-                const errorMessage = `${response.status} (${response.statusText})`
-                const error = new Error(errorMessage)
-                throw(error)
+            const toDoListId = props.match.params.id;
+            console.log('ID!', toDoListId);
+            const response = await fetch(`/api/v1/lists/${toDoListId}`);
+            console.log('response!!!', response);
+            
+            if (!response.ok) {
+                const errorMessage = `${response.status} (${response.statusText})`;
+                const error = new Error(errorMessage);
+                throw error;
             }
-            const responseBody = await response.json()
-            setToDoList(responseBody.toDoList)
-            setTasks(responseBody.toDoList.tasks)
+    
+            const responseBody = await response.json();
+            console.log('responseBody', responseBody);
+
+            setToDoList(responseBody.toDoList);
+            setTasks(responseBody.toDoList.tasks);
         } catch (error) {
-            console.error(`Error in Fetch: ${error.message}`)
+            console.error(`Error in Fetch: ${error.message}`);
         }
-    }
+    };
 
     useEffect(() => {
         getToDoList()
@@ -101,7 +104,7 @@ const ToDoListShowPage = (props) => {
     }
 
     if (shouldRedirect) {
-        return <Redirect push to={`List/${shouldRedirect.newToDoListId}/edit`}/>
+        return <Redirect push to={`list/${shouldRedirect.newToDoListId}/edit`}/>
     }
 
     return (
