@@ -50,6 +50,16 @@ a {
   font-size: xx-large;
 }
 
+//homepage
+.home-action {
+  background-color: #fff;
+  border-radius: 7px;
+  box-shadow: 0 2px 5px #ccc;
+  padding: .5rem;
+  width: 240px;
+  margin: 16px;
+}
+
 //navbar & dropdown menu
 .navbar-border {
   border-bottom: 1px $primary-color solid;

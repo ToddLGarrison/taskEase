@@ -22,7 +22,7 @@ class ToDoList extends Model {
                 modelClass: Task,
                 join: {
                     from: "toDoLists.id",
-                    to: "tasks.toDoList.id"
+                    to: "tasks.toDoListId"
                 }
             }
         }
